@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>Testando canvas em português manolo</title>
+    </head>
+    <body>
+
+        <canvas width="500" height="400" id="canvas"></canvas>
+
+        <script type="text/javascript" language="javascript" charset="utf-8">
+        //<![CDATA[
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.beginPath();
+            context.moveTo(20, 30);
+            context.lineTo(120, 130);
+            context.lineWidth = 5;
+            context.strokeStyle = "#FF00FF";
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(120, 130);
+            context.lineTo(180, 30);
+            context.lineWidth = 5;
+            context.strokeStyle = "#FFCC00";
+            context.stroke();
+
+            var linearGradient = context.createLinearGradient(0, 0, 0, 250);
+            linearGradient.addColorStop(0, '#0000FF');
+            linearGradient.addColorStop(0.2, '#00FF00');
+            linearGradient.addColorStop(0.4, '#FF0000')
+            linearGradient.addColorStop(0.6, '#FF00FF')
+            linearGradient.addColorStop(1, '#00FFFF');
+            context.fillStyle = linearGradient;
+            context.fillRect(90, 120, 300, 200);
+
+            context.beginPath();
+            context.fillStyle = "#000000";
+            context.arc(370, 305, 10, 0, Math.PI*2, true);
+            context.arc(350, 305, 5, 0, Math.PI*2, true);
+            context.arc(336, 305, 5, 0, Math.PI*2, true);
+            context.fill();
+
+            context.beginPath();
+            context.fillStyle = "rgba(0, 0, 0, 0.4)";
+            context.fillRect(110, 140, 260, 150);
+        //]]>
+        </script>
+
+    </body>
+</html>
