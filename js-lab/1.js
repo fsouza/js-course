@@ -1,3 +1,3 @@
-var buildArray = function (a, b) {
+var swapArgs = function (a, b) {
     return [b, a]
 };
