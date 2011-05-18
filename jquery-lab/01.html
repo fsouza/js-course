@@ -15,6 +15,22 @@
                     });
                     $('<td></td>').text(sum).appendTo(item);
                 });
+
+                var sums = [];
+                $('tr:first > td').each(function() {
+                    sums.push(0);
+                });
+
+                $('tr').each(function(index, tr) {
+                    $(tr).find("td").each(function(index, td) {
+                        sums[index] += parseInt($(td).text(), 10);
+                    });
+                });
+
+                var tr = $("<tr></tr>").appendTo("table");
+                $(sums).each(function (index, item) {
+                    $("<td></td>").text(item).appendTo(tr);
+                });
             });
         //]]>
         </script>
