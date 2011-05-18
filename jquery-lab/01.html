@@ -11,7 +11,7 @@
                 $('tr').each(function (index, item) {
                     sum = 0;
                     $(item).find("td").each(function (index, item) {
-                        sum += parseInt($(item).text());
+                        sum += parseInt($(item).text(), 10);
                     });
                     $('<td></td>').text(sum).appendTo(item);
                 });
