@@ -10,8 +10,8 @@
                 var sum;
                 $('tr').each(function (index, item) {
                     sum = 0;
-                    $(item).find("td").each(function (tdIndex, tdItem) {
-                        sum += parseInt($(tdItem).text());
+                    $(item).find("td").each(function (index, item) {
+                        sum += parseInt($(item).text());
                     });
                     $('<td></td>').text(sum).appendTo(item);
                 });
