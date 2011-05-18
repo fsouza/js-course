@@ -1,5 +1,5 @@
 var encapsulateFunction = function (fun) {
-    return {
-        callFunction : fun
-    }
+    var inner = function() {};
+    inner.callFunction = fun;
+    return inner;
 };
