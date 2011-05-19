@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>Page Title</title>
+        <style type="text/css" media="screen">
+            .selected {
+                background: blue;
+            }
+        </style>
+        <script src="jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" language="javascript" charset="utf-8">
+        //<![CDATA[
+            $(function () {
+                $('#table-button').click(function () {
+                    var tr = $('<tr></tr>');
+                    $('#form input').each(function (index, item) {
+                        if ($(item).attr('type') != 'button') {
+                            $('<td></td>').text($(item).val()).appendTo(tr);
+                        };
+                    });
+                    tr.appendTo('table > tbody');
+                });
+
+                $('table').delegate('tbody tr', 'click', function (event) {
+                    $('table > tbody > tr').removeClass('selected');
+                    $(this).addClass('selected');
+                });
+
+                $('html').keypress(function (event) {
+                    if (event.keyCode == 38) {
+                        var tr = $('tr.selected');
+                        tr.prev().addClass('selected');
+                        tr.removeClass('selected');
+                    } else if (event.keyCode == 40) {
+                        var tr = $('tr.selected');
+                        tr.next().addClass('selected');
+                        tr.removeClass('selected');
+                    } else if (event.keyCode == 8 || event.keyCode == 46) {
+                        $('tr.selected').remove();
+                    };
+                });
+            });
+        //]]>
+        </script>
+    </head>
+
+    <body>
+        <form action="" method="post" accept-charset="utf-8" id="form">
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" name="name" value="" id="name"/>
+            </p>
+            <p>
+                <label for="age">Age:</label>
+                <input type="text" age="age" value="" id="age"/>
+            </p>
+            <p>
+                <label for="team">Team:</label>
+                <input type="text" team="team" value="" id="team"/>
+            </p>
+            <p>
+                <label for="city">City:</label>
+                <input type="text" city="city" value="" id="city"/>
+            </p>
+            <p><input type="button" value="Show table!" id="table-button" /></p>
+        </form>
+
+        <table class="" cellpadding="2" cellspacing="0">
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Team</th>
+                <th>City</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </body>
+</html>
