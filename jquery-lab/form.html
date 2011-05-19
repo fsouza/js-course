@@ -38,6 +38,27 @@
                         $('tr.selected').remove();
                     };
                 });
+
+                $('#name').blur(function (event) {
+                    var field = $(this);
+                    var typedName = field.val();
+                    $.get("people.json", function (data) {
+                        console.log(data.people);
+                        var text = "Available";
+                        $.each(data.people, function (index, person) {
+                            if (typedName == person.name) {
+                                text = "Error: name already taken";
+                                return;
+                            }
+                        });
+
+                        if ($('span.name-error').length) {
+                            $('span.name-error').text(text);
+                        } else {
+                            $("<span class=\"name-error\"></span>").text(text).insertAfter(field);
+                        }
+                    }, 'json');
+                });
             });
         //]]>
         </script>

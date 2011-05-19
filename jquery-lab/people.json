@@ -1,0 +1,8 @@
+{
+    "people" : [
+        { "name" : "Francisco", "age" : 22, "team" : "Corinthians", "city" : "Rio de Janeiro" },
+        { "name" : "Francisco Souza", "age" : 26, "team" : "Flamengo", "city" : "São Paulo" },
+        { "name" : "Francisco Silva", "age" : 240, "team" : "Santos", "city" : "Vitória" },
+        { "name" : "Maria", "age" : 33, "team" : "Flamengo", "city" : "Cachoeir de Itapemirim" }
+    ]
+}
