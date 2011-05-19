@@ -27,7 +27,7 @@
                     $(this).addClass('selected');
                 });
 
-                $('html').keypress(function (event) {
+                $('html').keyup(function (event) {
                     if (event.keyCode == 38) {
                         var tr = $('tr.selected');
                         tr.prev().addClass('selected');
